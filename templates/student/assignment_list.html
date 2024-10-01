@@ -1,0 +1,36 @@
+{% extends "student/student_base.html" %}
+
+{% block content %}
+    <div class="overflow-x-auto mt-10">
+        <h1 class="text-3xl font-bold mb-4">Assignment List</h1>
+        
+        <table class="min-w-full table-auto border-collapse bg-white shadow-lg rounded-lg overflow-hidden">
+            <thead class="bg-gray-800 text-white text-center">
+                <tr>
+                    <th class="py-3 border-b text-sm font-semibold">SNo</th>
+                    <th class="py-3 border-b text-sm font-semibold">Title</th>
+                    <th class="py-3 border-b text-sm font-semibold">Description</th>
+                    <th class="py-3 border-b text-sm font-semibold">Due Date</th>
+                    <th class="py-3 border-b text-sm font-semibold">Status</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                {% for assignment in assignment %}
+                    <tr class="bg-white hover:bg-gray-100 text-center">
+                        <td class="px-3 py-4 text-sm font-medium text-gray-900">{{ forloop.counter }}</td>
+                        <td class="px-3 py-4 text-sm text-gray-600">{{ assignment.title }}</td>
+                        <td class="px-3 py-4 text-sm text-gray-600">{{ assignment.description|truncatechars:50 }}</td>
+                        <td class="px-3 py-4 text-sm text-gray-600">{{ assignment.due_date|date:"F j, Y" }}</td>
+                        <td class="px-3 py-4 text-sm text-gray-600">{{ assignment.status }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="5" class="px-6 py-4 text-center text-sm text-gray-500">
+                            No assignments found.
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

@@ -1,0 +1,10 @@
+<!-- templates/student/dashboard.html -->
+{% extends "student/student_base.html" %}
+
+{% block content %}
+<div class="p-4">
+    <h1 class="text-3xl font-bold">Student Dashboard</h1>
+    <p>Welcome, {{ request.user.username }}!</p>
+    <!-- Add more content for the dashboard here -->
+</div>
+{% endblock content %}

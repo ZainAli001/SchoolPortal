@@ -1,0 +1,42 @@
+{% extends "student/student_base.html" %}
+
+{% load static %}  <!-- Load static files if needed -->
+
+{% block content %}
+    <h1 class="text-3xl font-bold mb-4">Tutors List</h1>
+
+    <div class="overflow-x-auto mt-10">
+        <table class="min-w-full table-auto border-collapse bg-white shadow-lg rounded-lg overflow-hidden">
+            <thead class="bg-gray-800 text-white text-center">
+                <tr>
+                    <th class="py-3 border-b text-sm font-semibold">SNo</th>
+                    <th class="py-3 border-b text-sm font-semibold">Profile Image</th>
+                    <th class="py-3 border-b text-sm font-semibold">Tutor Name</th>
+                    <th class="py-3 border-b text-sm font-semibold">Email</th>
+                    <th class="py-3 border-b text-sm font-semibold">Phone</th>
+                    <th class="py-3 border-b text-sm font-semibold">Gender</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                {% for tutor in tutors %}
+                    <tr class="bg-white hover:bg-gray-100 text-center">
+                        <td class="px-3 py-4 text-sm font-medium text-gray-900">{{ forloop.counter }}</td>
+                        <td class="px-3 py-4 text-sm text-gray-600">{{ tutor.profile_image }}</td>
+                        <td class="px-3 py-4 text-sm text-gray-600">{{ tutor.user.username }}</td>
+                        <td class="px-3 py-4 text-sm text-gray-600">{{ tutor.user.email }}</td>
+                        <td class="px-3 py-4 text-sm text-gray-600">{{ tutor.phone_number }}</td>
+                        <td class="px-3 py-4 text-sm text-gray-600">{{ tutor.gender }}</td>
+                
+                      
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="5" class="px-6 py-4 text-center text-sm text-gray-500">
+                            No tutors found.
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

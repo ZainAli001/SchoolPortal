@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex items-center justify-center min-h-screen bg-gradient-to-r from-green-200 to-blue-200 p-4">
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-3xl">
+        <h2 class="text-4xl font-bold text-gray-800 mb-6 text-center">Student Sign Up</h2>
+        
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="mb-4 flex items-center border border-gray-300 rounded-lg">
+                    <img src="https://img.icons8.com/ios-filled/20/000000/user.png" alt="Username Icon" class="p-2">
+                    <input type="text" name="username" placeholder="Username" required class="w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+
+                <div class="mb-4 flex items-center border border-gray-300 rounded-lg">
+                    <img src="https://img.icons8.com/ios-filled/20/000000/email.png" alt="Email Icon" class="p-2">
+                    <input type="email" name="email" placeholder="Email" required class="w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+
+                <div class="mb-4 flex items-center border border-gray-300 rounded-lg">
+                    <img src="https://img.icons8.com/ios-filled/20/000000/lock.png" alt="Password Icon" class="p-2">
+                    <input type="password" name="password" placeholder="Password" required class="w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+
+                <div class="mb-4 flex items-center border border-gray-300 rounded-lg">
+                    <img src="https://img.icons8.com/ios-filled/20/000000/calendar.png" alt="Date of Birth Icon" class="p-2">
+                    <input type="date" name="date_of_birth" required class="w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+
+                <div class="mb-4 flex items-center border border-gray-300 rounded-lg">
+                    <img src="https://img.icons8.com/ios-filled/20/000000/image.png" alt="Profile Image Icon" class="p-2">
+                    <input type="file" name="profile_image" class="w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+
+                <div class="mb-4 flex items-center border border-gray-300 rounded-lg">
+                    <img src="https://img.icons8.com/ios-filled/20/000000/phone.png" alt="Phone Icon" class="p-2">
+                    <input type="text" name="phone_number" placeholder="Phone Number" required class="w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+
+                <div class="mb-4 flex items-center border border-gray-300 rounded-lg">
+                    <img src="https://img.icons8.com/ios-filled/20/000000/home.png" alt="Address Icon" class="p-2">
+                    <textarea name="address" placeholder="Address" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+
+                <div class="mb-4 flex items-center border border-gray-300 rounded-lg">
+                    <img src="https://img.icons8.com/ios-filled/20/000000/gender-neutral-user.png" alt="Gender Icon" class="p-2">
+                    <select name="gender" required class="w-full p-3 mx-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Select Gender</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                        <option value="O">Other</option>
+                    </select>
+                </div>
+
+                <div class="mb-4 flex items-center border border-gray-300 rounded-lg">
+                    <img src="https://img.icons8.com/ios-filled/20/000000/age.png" alt="Age Icon" class="p-2">
+                    <input type="number" name="age" placeholder="Age" required class="w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+            </div>
+
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg w-full hover:bg-blue-600 transition duration-300">Register</button>
+        </form>
+
+        <p class="mt-4 text-gray-600 text-center">Already have an account? <a href="{% url 'student_login' %}" class="text-blue-500 hover:underline">Login here</a></p>
+    </div>
+</div>
+{% endblock content %}

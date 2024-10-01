@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+    <!-- Online Image -->
+    <img src="https://img.icons8.com/ios-filled/150/000000/book.png" alt="Course Management" class="mb-3 w-32 h-32 p-3 rounded-full shadow-lg">
+    <h2 class="text-4xl font-bold text-gray-800 mb-4">Welcome to the Course Management System</h2>
+    <p class="text-lg text-gray-600 mb-6">Please choose your role:</p>
+    
+    <div class="space-x-4 flex">
+        <a href="{% url 'student_login' %}" class="bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center hover:bg-blue-600 transition duration-300">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/student-male.png" alt="Student Icon" class="mr-2 w-6 h-6">
+            Student Login
+        </a>
+        <a href="{% url 'tutor_login' %}" class="bg-green-500 text-white px-4 py-2 rounded-lg flex items-center hover:bg-green-600 transition duration-300">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/teacher.png" alt="Tutor Icon" class="mr-2 w-6 h-6">
+            Tutor Login
+        </a>
+    </div>
+</div>
+{% endblock content %}
